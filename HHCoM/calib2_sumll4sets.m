@@ -18,6 +18,8 @@ username = 'aguha'; %CHANGE ME IF NEEDED
 t_curr = tstep_abc;
 date = date_abc;
 
+disp('Start Calib2')
+
 %% Cluster information
 % pc = parcluster('local');    % create a local cluster object
 % pc.JobStorageLocation = strcat('/gscratch/csde/guiliu' , '/' , getenv('SLURM_JOB_ID'))    % explicitly set the JobStorageLocation to the temp directory that was created in the sbatch script
@@ -30,7 +32,7 @@ date = date_abc;
 %numWorkers = 9; % to run the model on 9 parallel workers 
 %parpool(pc, numWorkers)
 
-
+disp('Load Params')
 %% Load parameters
 paramDir = [pwd ,'/Params/'];
 paramSetMatrix = load([paramDir,'stochasticParamsets.dat']);
@@ -46,6 +48,8 @@ for s = 1 : length(pIdx)
     paramsSub{s}.inds = (startIdx : (startIdx + paramsSub{s}.length - 1));
     startIdx = startIdx + paramsSub{s}.length;
 end
+
+disp('Start Future Sim')
 
 %% Obtain model output for each set of sampled parameters
 %

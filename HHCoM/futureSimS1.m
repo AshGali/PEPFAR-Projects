@@ -8,8 +8,9 @@ function futureSimS1(calibBool , pIdx , paramsSub , paramSet , paramSetIdx , tst
 
 %%  Variables/parameters to set based on your scenario
 
+disp('Load Population')
 % LOAD POPULATION
-historicalIn = load([pwd , ['/HHCoM_Results/toNow_sk1822_stochMod_baseline_2dose_nowanePEPFARHistoricalBaseTest1']]);
+historicalIn = load([pwd , ['/HHCoM/HHCoM_Results/toNow_sk1822_stochMod_baseline_2dose_nowanePEPFARHistoricalBaseTest19.mat']]);
 %% historicalIn = load([pwd , ['/HHCoM_Results/toNow_sk1822_stochMod_baseline_2dose_nowanePEPFARHistoricalBase1']]); % ***SET ME***: name for historical run input file *fix this
 %% historicalIn = load([pwd , ['/HHCoM_Results/toNow_sk1822_stochMod_baseline_2dose_nowanePEPFARHistoricalBase' , num2str(paramSetIdx)]]); % ***SET ME***: name for historical run input file *fix this
 %% historicalIn = load([pwd , '/HHCoM_Results/toNow_determMod_final_artDiscontFix']);
@@ -102,6 +103,8 @@ vaxLimitPerYr = 20000;    % total vaccines available per year for all interventi
 vaxAgeL = 5;
 vaxCoverL = 0.5;
 vaxGL = 2;    % index of gender to vaccinate during limited-vaccine years
+
+disp('Load Up 2')
 
 %% Save pre-loaded parameters and pre-calculated indices and matrices
 [stepsPerYear , timeStep , startYear , currYear , endYear , ...
