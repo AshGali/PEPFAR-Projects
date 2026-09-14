@@ -10,7 +10,7 @@ function futureSimS1(calibBool , pIdx , paramsSub , paramSet , paramSetIdx , tst
 
 disp('Load Population')
 % LOAD POPULATION
-historicalIn = load([pwd , ['/HHCoM/HHCoM_Results/toNow_sk1822_stochMod_baseline_2dose_nowanePEPFARHistoricalBaseTest19.mat']]);
+historicalIn = load([pwd , ['/HHCoM_Results/toNow_sk1822_stochMod_baseline_2dose_nowanePEPFARHistoricalBaseTest19.mat']]);
 %% historicalIn = load([pwd , ['/HHCoM_Results/toNow_sk1822_stochMod_baseline_2dose_nowanePEPFARHistoricalBase1']]); % ***SET ME***: name for historical run input file *fix this
 %% historicalIn = load([pwd , ['/HHCoM_Results/toNow_sk1822_stochMod_baseline_2dose_nowanePEPFARHistoricalBase' , num2str(paramSetIdx)]]); % ***SET ME***: name for historical run input file *fix this
 %% historicalIn = load([pwd , '/HHCoM_Results/toNow_determMod_final_artDiscontFix']);
@@ -18,8 +18,8 @@ historicalIn = load([pwd , ['/HHCoM/HHCoM_Results/toNow_sk1822_stochMod_baseline
 % DIRECTORY TO SAVE RESULTS
 pathModifier = ['Kenya1DoseCea_Aug14_WaningCU_PEPFAR_S1']; % ***SET ME***: name for simulation output file
 % Directory to save results
-if ~ exist([pwd , '/HHCoM_Results/Vaccine' , pathModifier, '/'])
-    mkdir ([pwd, '/HHCoM_Results/Vaccine' , pathModifier, '/'])
+if ~ exist([pwd , '/HHCoM_Results/PEPFAR_S1_TEST' , pathModifier, '/'])
+    mkdir ([pwd, '/HHCoM_Results/PEPFAR_S1_TEST' , pathModifier, '/'])
 end
 
 % AGE GROUPS

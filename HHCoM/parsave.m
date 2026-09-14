@@ -4,7 +4,8 @@ function parsave(fname, fivYrAgeGrpsOn , tVec , popVec , newHiv , prepCov ,...
     newCC , menCirc , vaxdLmtd , vaxdSchool , vaxdCU , newScreen , artDist , artDistList , ... %artTreatTracker , newTreatImm , newTreatHpv , newTreatHyst ,
     currYear , lastYear , vaxRate , vaxEff , ccSymp , ccTreat , popLast , pathModifier)
 
-savDir = [pwd , '/HHCoM_Results/Vaccine' , pathModifier, '/'];
+%savDir = [pwd , '/HHCoM_Results/Vaccine' , pathModifier, '/'];
+savDir = [pwd , '/HHCoM_Results/PEPFAR_S1_TEST' , pathModifier, '/'];
 
 save(fullfile(savDir , fname) , 'fivYrAgeGrpsOn' , 'tVec' ,  'popVec' , 'newHiv' , 'prepCov',...
      'newHpvVax' , 'newImmHpvVax' , 'newHpvNonVax' , 'newImmHpvNonVax' , ...
