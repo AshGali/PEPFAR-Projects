@@ -167,8 +167,12 @@ loopSegmentsLength = length(loopSegments);
                                             sce.*ones(nTimepoints,1), ccHealthState(:, a, x, param)];
                     
                     else 
+                        %ccHealthStateReshape = [ccHealthStateReshape; 
+                        %                    transpose(monthlyTimespan), dInd.*ones(nTimepoints,1) , a.*ones(nTimepoints,1), x.*ones(nTimepoints,1), param.*ones(nTimepoints,1), ...
+                        %                    sce.*ones(nTimepoints,1), ccHealthState(:, a, x, param)];
+               
                         ccHealthStateReshape = [ccHealthStateReshape; 
-                                            transpose(monthlyTimespan), dInd.*ones(nTimepoints,1) , a.*ones(nTimepoints,1), x.*ones(nTimepoints,1), param.*ones(nTimepoints,1), ...
+                                            transpose(monthlyTimespan), a.*ones(nTimepoints,1), x.*ones(nTimepoints,1), param.*ones(nTimepoints,1), ...
                                             sce.*ones(nTimepoints,1), ccHealthState(:, a, x, param)];
                                             
                     end 
@@ -181,11 +185,13 @@ loopSegmentsLength = length(loopSegments);
 
 % turn into arrays
 
-ccHealthStateReshape1 = array2table(ccHealthStateReshape, 'VariableNames', {'year',  'hivState' , 'age', 'endpoint', 'paramNum', ...
+%ccHealthStateReshape1 = array2table(ccHealthStateReshape, 'VariableNames', {'year',  'hivState' , 'age', 'endpoint', 'paramNum', ...
+%    'sceNum', 'count'});
+ccHealthStateReshape1 = array2table(ccHealthStateReshape, 'VariableNames', {'year', 'age', 'endpoint', 'paramNum', ...
     'sceNum', 'count'});
 totalPerAgeReshape1 = array2table(totalPerAgeReshape, 'VariableNames', {'year', 'gender', 'age', 'paramNum', 'sceNum', 'count'}); 
 
-% instead of returning the table objects, return numeric matrix + column names
+% instead of returning the table objects, return matrix + column names
 totalPerAgeCols = {'year', 'gender', 'age', 'paramNum', 'sceNum', 'count'};
 ccHealthStateCols = {'year', 'age', 'endpoint', 'paramNum', 'sceNum', 'count'}; 
 
