@@ -149,36 +149,31 @@ loopSegmentsLength = length(loopSegments);
                 if (param == 1 && a == 1 && g == 1)
                     totalPerAgeReshape = [transpose(monthlyTimespan), g.*ones(nTimepoints,1), a.*ones(nTimepoints,1), param.*ones(nTimepoints,1), sce.*ones(nTimepoints,1), ...
                                             totalPerAge(:, g, a, param)];
-                                    else 
+                else 
                     totalPerAgeReshape = [totalPerAgeReshape; 
                                             transpose(monthlyTimespan), g.*ones(nTimepoints,1), a.*ones(nTimepoints,1), param.*ones(nTimepoints,1), sce.*ones(nTimepoints,1), ...
                                            totalPerAge(:, g, a, param)]; 
-                end 
-            end 
+                end
+            end  
 
- 
-               for x = 1 : endpoints 
-                    %dInd = 1;
-                    if (param == 1 && a == 1 && x == 1)
-                        %ccHealthStateReshape = [transpose(monthlyTimespan), dInd.*ones(nTimepoints,1) , a.*ones(nTimepoints,1), x.*ones(nTimepoints,1), param.*ones(nTimepoints,1), ...
-                        %                    sce.*ones(nTimepoints,1), ccHealthState(:, a, x, param)];
-                        % REMOVED DIND
-                        ccHealthStateReshape = [transpose(monthlyTimespan), a.*ones(nTimepoints,1), x.*ones(nTimepoints,1), param.*ones(nTimepoints,1), ...
-                                            sce.*ones(nTimepoints,1), ccHealthState(:, a, x, param)];
+            for x = 1 : endpoints 
+                if (param == 1 && a == 1 && x == 1)
+                    % REMOVED DIND
+                    ccHealthStateReshape = [transpose(monthlyTimespan), a.*ones(nTimepoints,1), ...
+                            x.*ones(nTimepoints,1), param.*ones(nTimepoints,1), ...
+                            sce.*ones(nTimepoints,1), ccHealthState(:, a, x, param)];
                     
-                    else 
-                        %ccHealthStateReshape = [ccHealthStateReshape; 
-                        %                    transpose(monthlyTimespan), dInd.*ones(nTimepoints,1) , a.*ones(nTimepoints,1), x.*ones(nTimepoints,1), param.*ones(nTimepoints,1), ...
-                        %                    sce.*ones(nTimepoints,1), ccHealthState(:, a, x, param)];
-               
-                        ccHealthStateReshape = [ccHealthStateReshape; 
-                                            transpose(monthlyTimespan), a.*ones(nTimepoints,1), x.*ones(nTimepoints,1), param.*ones(nTimepoints,1), ...
-                                            sce.*ones(nTimepoints,1), ccHealthState(:, a, x, param)];
+                else 
+                    % REMOVED DIND
+                    ccHealthStateReshape = [ccHealthStateReshape; 
+                            transpose(monthlyTimespan), a.*ones(nTimepoints,1), ...
+                            x.*ones(nTimepoints,1), param.*ones(nTimepoints,1), ...
+                            sce.*ones(nTimepoints,1), ccHealthState(:, a, x, param)];
+                end
                                             
-                    end 
-               end 
+            end 
+        end 
 
-        end
         disp(['Complete Scenario ', num2str(sce), ', Parameter ', num2str(param)])
     end 
   
