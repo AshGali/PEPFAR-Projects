@@ -26,7 +26,7 @@ end
 fivYrAgeGrpsOn = 1; % choose whether to use 5-year or 1-year age groups
 
 % LAST YEAR
-lastYear = 2026; % ***SET ME***: end year of simulation run 2123
+lastYear = 2030; % ***SET ME***: end year of simulation run 2123
 
 % SCREENING
 screenAlgorithm = 2; % ***SET ME***: screening algorithm to use (1 for baseline, 2 for CISNET, 3 for WHOa, 4 for WHOb)

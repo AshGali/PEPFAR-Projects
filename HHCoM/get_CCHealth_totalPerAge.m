@@ -41,7 +41,7 @@ disease  = c{7};  viral = c{8};  hpvVaxStates = c{9};  hpvNonVaxStates = c{10};
 endpoints = c{11}; intervens = c{12}; gender = c{13}; age = c{14}; risk = c{15};
 toInd = c{19};
 
-lastYear = 2026; % manually set in futureSim, see processResults.m line 59
+lastYear = 2030; % manually set in futureSim, see processResults.m line 59
 
 %% Timespan
 monthlyTimespan = startYear : timeStep : lastYear;
@@ -78,9 +78,9 @@ fileInds = {'1', '2', '3', '4', '5', '6', '7', '8', '9', '10', ...
                 '22', '23', '24', '25'};    % 22Apr20Ph2V11 ***************SET ME****************
 %fileInds = {'18'}; % FORTESTING
 nRuns = 1;
-endYear = 2025;
+endYear = 2030;
 
-%lastYear = 2026; % manually set in futureSim
+%lastYear = 2030; % manually set in futureSim
 monthlyTimespan = [startYear : timeStep : lastYear]; % list all the timespans in a vector
 monthlyTimespan = monthlyTimespan(1 : end-1); % remove the very last date
 monthlyTimespanFut = [endYear : timeStep : lastYear]; % screening time span starts at 2021
