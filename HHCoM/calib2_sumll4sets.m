@@ -6,7 +6,11 @@
 % Saves:
 % 1) File: negSumLogL_calib_[date].dat (negative log likelihood for each parameter set in sub-set)
 
-function calib2_sumll4sets(paramSetIdx , tstep_abc , date_abc)
+function calib2_sumll4sets(paramSetIdx , tstep_abc , date_abc , screenAge)
+
+if nargin < 4
+    screenAge = [];
+end
 
 %delete(gcp('nocreate'));
 
@@ -56,7 +60,7 @@ disp('Start Future Sim')
 %negSumLogLSet = zeros(nPrlSets,1); %CHANGE ME ** comment out when runng locally
 parfor n = 1 % : nPrlSets  % CHANGE ME ** Comment out when running locally
     paramSet = paramSetMatrix(:,subMatrixInds(n));
-    futureSimS1(1 , pIdx , paramsSub , paramSet , (paramSetIdx + n - 1) , tstep_abc , date_abc);
+    futureSimS1(1 , pIdx , paramsSub , paramSet , (paramSetIdx + n - 1) , tstep_abc , date_abc , screenAge);
     %historicalSim(1 , pIdx , paramsSub , paramSet , (paramSetIdx + n - 1)
     %, tstep_abc , date_abc); CHANGE ME ** Comment out when running future
     %negSumLogLSet(n,1) = negSumLogL;

@@ -1,7 +1,12 @@
 % Future simulation module
 % Accepts population vector from calibrated natural history model as input
 
-function futureSimS1(calibBool , pIdx , paramsSub , paramSet , paramSetIdx , tstep_abc , date) 
+function futureSimS1(calibBool , pIdx , paramsSub , paramSet , paramSetIdx , tstep_abc , date , screenAge)
+
+if nargin < 8
+    screenAge = []; % no override, use loadUp2 default
+end
+
 %%
 %close all; clear all; clc
 % profile clear;
@@ -150,6 +155,10 @@ disp('Load Up 2')
     dDeathMat , dDeathMat2 , dDeathMat3 , dDeathMat4, dMue , ...
     ccLochpvVaxIndsFrom_treat , ...
     ccReghpvVaxInds_treat , ccDisthpvVaxInds_treat , vaxEff] = loadUp2_S1(fivYrAgeGrpsOn , calibBool , pIdx , paramsSub , paramSet , paramSetIdx);
+
+if ~isempty(screenAge)
+    baseline.screenAge = screenAge;
+end
 
 %% Screening
 
